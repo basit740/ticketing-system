@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Validation</title>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/dist/output.css">
+    </head>
+    </head>
+
+    <body class="bg-gray-100">
+
+        <div class="flex">
+            <section class="xl:w-1/2 md:w-full sm:block w-full h-screen bg-gray-100 shrink-0">
+                <div class="flex items-center justify-center content-center h-full w-full">
+                    <div class="bg-white xl:h-[34rem] xl:w-[29rem] w-[28rem] h-[35rem] rounded-xl shadow-2xl relative">
+                        <div class="h-10 w-10 absolute -top-3 left-6 ">
+                            <img src="/img/logo-bg-black.png" class="xl:hidden block sm:block rounded shadow-lg "
+                                alt="">
+                        </div>
+                        <div class="flex flex-col">
+                            <div class=" h-20 w-full ">
+                                <div class="mb-4  border-gray-200 dark:border-gray-700">
+                                    <ul class="flex flex-row" id="myTab" data-tabs-toggle="#myTabContent"
+                                        role="tablist">
+                                        <li class="w-1/2  h-24 text-lg font-poppins font-medium border-t-0 border-x-0 flex items-center justify-center "
+                                            role="presentation">
+                                            <button
+                                                class="w-1/2 p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600  dark:hover:text-gray-300"
+                                                id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
+                                                aria-controls="settings" aria-selected="true">
+                                                Student
+                                            </button>
+                                        </li>
+                                        <li role="presentation"
+                                            class="w-1/2  h-24 text-lg font-poppins font-medium border-t-0 border-x-0 flex items-center justify-center">
+                                            <button
+                                                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                                id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab"
+                                                aria-controls="contacts" aria-selected="false">
+                                                Employee
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-full h-[450px] m-12">
+                                <div id="myTabContent">
+                                    <div class="hidden" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                                        <form class="flex flex-col" id="std-form">
+                                            <span class="mb-3 text-3xl font-bold">User Validation</span>
+                                            <span class="font-light text-sm text-gray-400 mb-8">
+                                                Please enter your details
+                                            </span>
+                                            <div class="py-2">
+                                                <span class=" text-md block">Student Number</span>
+                                                <input type="text"
+                                                    class="w-[359px] p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                                                    name="email" id="input-std-number" />
+                                            </div>
+                                            <div class="py-4">
+                                                <span class=" text-md block">Birthdate</span>
+                                                <input type="date" name="birth-date-std" id="std-birth-date"
+                                                    class="w-[359px] p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500" />
+                                            </div>
+                                            <button id="btn-validate-student" type="submit"
+                                                class="w-[359px] bg-black text-white p-2 rounded-lg mb-6 mt-8  0">
+                                                Continue
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="hidden dark:bg-gray-800" id="contacts" role="tabpanel"
+                                        aria-labelledby="contacts-tab">
+                                        <form class="flex flex-col" id="emp-form">
+                                            <span class="mb-3 text-3xl font-bold">User Validation</span>
+                                            <span class="font-light text-sm text-gray-400 mb-8">
+                                                Please enter your details
+                                            </span>
+                                            <div class="py-2">
+                                                <span class=" text-md block">Employee Number</span>
+                                                <input type="text"
+                                                    class="w-[359px] p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                                                    name="email" id="input-emp-number" />
+                                            </div>
+                                            <div class="py-4">
+                                                <span class=" text-md block">Birthdate</span>
+                                                <input type="date" name="birth-date" id="emp-birth-date"
+                                                    class="w-[359px] p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500" />
+                                            </div>
+                                            <button id="btn-validate-employee" type="submit"
+                                                class="w-[359px] bg-black text-white p-2 rounded-lg mb-6 mt-8 ">
+                                                Continue
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="xl:w-1/2 md:block  hidden bg-cover overflow-hidden"
+                style="background-image: url(/img/office2.png)">
+                <div class="h-40 pt-12 pl-10 flex-none">
+                    <img src="/img/logo-white.png" alt="" />
+                </div>
+                <div class="space-y-4 pl-10 mb-60 xl:block md:hidden">
+                    <h1 class="text-white font-poppins text-8xl font-semibold tracking-wide">
+                        MIS
+                    </h1>
+                    <h1 class="text-white font-poppins text-8xl font-semibold tracking-wide">
+                        ONLINE
+                    </h1>
+                    <h1 class="text-white font-poppins text-8xl font-semibold tracking-wide">
+                        HELPDESK
+                    </h1>
+                </div>
+                <div class="xl:block md:hidden pl-[500px] pt-8">
+                    <h2 class="font-poppins text-white pr-8 text-lg whitespace-nowrap">
+                        University’s Technical Support
+                    </h2>
+                </div>
+            </section>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+        <script src="/dist/JS/global.js"></script>
+        <script src="/dist/JS/userValidate.js"></script>
+
+    </body>
+
+</html>

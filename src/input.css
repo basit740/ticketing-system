@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .accordion-header{
+        @apply py-3 px-6 cursor-pointer
+    }
+    .accordion-header.active i {
+        @apply transition ease-in-out duration-300 text-black;
+        transform: rotateX(180deg) ;
+    }
+    .accordion-body{
+        @apply max-h-0 overflow-hidden transition-all duration-200 ease-out bg-gray-100
+    }
+
+    body{
+        @apply font-poppins
+    }
+}

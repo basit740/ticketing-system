@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Helpdesk | Tickets</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.min.js"></script>
+    <script
+      src="../JS/globalFunctions.js"
+      type="text/javascript"
+      defer
+    ></script>
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex flex-row">
+      <!--side nav container-->
+      <div
+        class="bg-gray-200 w-16 h-screen flex flex-col justify-between items-center p-3 flex-none fixed top-0 left-0"
+      >
+        <div class="flex flex-col items-center">
+          <!--logo-->
+          <div class="p-2 mb-2">
+            <a href="#">
+              <img src="/img/logo.png" alt="" />
+            </a>
+          </div>
+
+          <!--dash-->
+          <div class="h-16 w-16">
+            <div
+              class="h-16 w-16 bg-gray-200 p-0 flex items-center justify-center"
+            >
+              <a href="dashboard.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!--tickets-->
+          <div class="h-16 w-16">
+            <div class="h-16 w-16 flex items-center justify-center">
+              <a href="tickets.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 01-.375.65 2.249 2.249 0 000 3.898.75.75 0 01.375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 17.625v-3.026a.75.75 0 01.374-.65 2.249 2.249 0 000-3.898.75.75 0 01-.374-.65V6.375zm15-1.125a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0V6a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0v.75a.75.75 0 001.5 0v-.75zm-.75 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0V18a.75.75 0 001.5 0v-.75zM6 12a.75.75 0 01.75-.75H12a.75.75 0 010 1.5H6.75A.75.75 0 016 12zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!--KB-->
+          <div class="w-16 h-16">
+            <div class="h-16 w-16 flex items-center justify-center bg-gray-200">
+              <a href="canned-response.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6 fill-"
+                >
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!--Repots-->
+          <div class="h-16 w-16 flex items-center justify-center">
+            <a href="analytics.html">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!--messages-->
+
+          <!--B-items-->
+        </div>
+        <div class="pb-6 flex flex-col space-y-2">
+          <div
+            class="h-10 w-10 border-blue-950 bg-gray-50 flex justify-center items-center rounded-lg"
+          >
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                class="w-6 h-6 opacity-90 stroke-blue-950"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+                />
+              </svg>
+            </a>
+          </div>
+
+           <!--side nav logout-->
+          <div
+            class="h-10 w-10 hover:bg-gray-50 flex justify-center items-center rounded-lg hover:duration-700"
+          >
+            <a href=""
+            onclick="logout(event)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                class="w-6 h-6 opacity-50"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="w-full h-full ml-16 overflow-auto">
+        <!---top nav-->
+        <nav
+          class="bg-white bottom-1 h-16 border-b-3 drop-shadow-md flex items-center justify-between "
+        >
+          <div
+            class="pl-7 font-poppins font-semibold text-lg text-blue-950 opacity-90"
+          >
+            User
+          </div>
+
+          <!--Profile-->
+          <section class="pr-10">
+            <div class="flex items-center">
+              <button
+                id="dropdownToggle"
+                class="rounded-full w-10 h-10 bg-gray-200 relative"
+              >
+                <img
+                  src="https://i.pinimg.com/564x/d3/71/12/d371121e7e55c3e6bc27b6cea14ebe0d.jpg"
+                  alt="Avatar"
+                  class="rounded-full w-100% h-100%"
+                />
+              </button>
+            </div>
+          </section>
+          <!--end Profile-->
+        </nav>
+        <!--main content-->
+        <main class="xl:p-20 md:p-20 p-6 mt-4 space-y-8">
+          <div
+            class="grid xl:grid-cols-2 md:grid-cols-2 grid-row-1 h-[600px] xl:h-[550px] xl:mt-10 md:mt-10 gap-5"
+          >
+            <div
+              class="xl:row-span-3 md:row-span-3 flex justify-center items-center shadow-lg rounded-lg "
+            >
+              <div
+                class="h-full bg-white w-full rounded-lg p-3 flex xl:flex-col md:flex-col"
+              >
+                <div class=" h-1/2 flex justify-center items-center space-y-3">
+                  <div>
+                    <div
+                      class="rounded-full w-48 h-48 bg-gray-200"
+                    >
+                      <img
+                        src="https://i.pinimg.com/564x/d3/71/12/d371121e7e55c3e6bc27b6cea14ebe0d.jpg"
+                        alt="Avatar"
+                        class="rounded-full w-100% h-100%"
+                      />
+                    </div>
+                    <div class="flex items-center justify-center pt-3">
+                      <p class="font-medium text-xl">Name Example</p>
+                    </div>
+                  </div>
+                </div>
+                <div class=" h-1/2 space-y-7 flex flex-col justify-center p-5">
+                  <div class="flex space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+  <path d="M10.5 18.75a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" />
+  <path fill-rule="evenodd" d="M8.625.75A3.375 3.375 0 005.25 4.125v15.75a3.375 3.375 0 003.375 3.375h6.75a3.375 3.375 0 003.375-3.375V4.125A3.375 3.375 0 0015.375.75h-6.75zM7.5 4.125C7.5 3.504 8.004 3 8.625 3H9.75v.375c0 .621.504 1.125 1.125 1.125h2.25c.621 0 1.125-.504 1.125-1.125V3h1.125c.621 0 1.125.504 1.125 1.125v15.75c0 .621-.504 1.125-1.125 1.125h-6.75A1.125 1.125 0 017.5 19.875V4.125z" clip-rule="evenodd" />
+</svg>
+<p class="flex items-center">78988798798</p>
+
+                  </div>
+                  <div class="flex space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+  <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+  <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+</svg>
+<p class="flex items-center">Example@email.com</p>
+
+                  </div>
+                  <div class="flex space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+  <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+</svg>
+<p class="flex items-center">location</p>
+
+                  </div>
+                </div>
+                <div class=" h-1/4 flex flex-row justify-center items-center space-x-4">
+                  
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path d="M15.75 8.25a.75.75 0 01.75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 11-.992-1.124A2.243 2.243 0 0015 9a.75.75 0 01.75-.75z" />
+  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM4.575 15.6a8.25 8.25 0 009.348 4.425 1.966 1.966 0 00-1.84-1.275.983.983 0 01-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 012.328-.377L16.5 15h.628a2.25 2.25 0 011.983 1.186 8.25 8.25 0 00-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.575 15.6z" clip-rule="evenodd" />
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path d="M15.75 8.25a.75.75 0 01.75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 11-.992-1.124A2.243 2.243 0 0015 9a.75.75 0 01.75-.75z" />
+  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM4.575 15.6a8.25 8.25 0 009.348 4.425 1.966 1.966 0 00-1.84-1.275.983.983 0 01-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 012.328-.377L16.5 15h.628a2.25 2.25 0 011.983 1.186 8.25 8.25 0 00-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.575 15.6z" clip-rule="evenodd" />
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path d="M15.75 8.25a.75.75 0 01.75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 11-.992-1.124A2.243 2.243 0 0015 9a.75.75 0 01.75-.75z" />
+  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM4.575 15.6a8.25 8.25 0 009.348 4.425 1.966 1.966 0 00-1.84-1.275.983.983 0 01-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 012.328-.377L16.5 15h.628a2.25 2.25 0 011.983 1.186 8.25 8.25 0 00-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.575 15.6z" clip-rule="evenodd" />
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path d="M15.75 8.25a.75.75 0 01.75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 11-.992-1.124A2.243 2.243 0 0015 9a.75.75 0 01.75-.75z" />
+  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM4.575 15.6a8.25 8.25 0 009.348 4.425 1.966 1.966 0 00-1.84-1.275.983.983 0 01-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 012.328-.377L16.5 15h.628a2.25 2.25 0 011.983 1.186 8.25 8.25 0 00-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.575 15.6z" clip-rule="evenodd" />
+</svg>
+
+                </div>
+              </div>
+            </div>
+
+            <div class=" h-30 flex space-x-3">
+              <!--card1-->
+              <div
+            class="  md:h-44 rounded-lg flex p-4 bg-opacity-80 shadow-lg relative w-1/2 h-30 bg-orange-500"
+          >
+            <div class="mt-5 ml-2">
+              <h2
+                class="font-semibold xl:text-lg md:text-base opacity-50 flex space-x-reverse text-orange-500"
+              >
+                Resolved Titcket 
+              </h2>
+            </div>
+            <div class="w-3/4 flex  justify-end items-center xl:text-9xl ">
+              <h1
+                class="  font-medium  text-orange-500 "
+              >
+                20
+              </h1>
+            </div>
+            
+          </div>
+              <!--card2-->
+               <div
+            class="  md:h-44 rounded-lg flex p-4 bg-opacity-90 shadow-lg relative w-1/2 h-30 bg-blue-950 "
+          >
+            <div class="mt-5 ml-2 ">
+              <h2
+                class="font-semibold xl:text-lg md:text-base opacity-50 flex space-x-reverse text-orange-500"
+              >
+                Assigned Titcket
+              </h2>
+            </div>
+            <div class="w-3/4 flex  justify-end items-center xl:text-9xl ">
+              <h1
+                class="  font-medium  text-orange-500 "
+              >
+                20
+              </h1>
+            </div>
+            
+          </div>
+            </div>
+
+            <div class="bg-white xl:row-span-2 md:row-span-2 rounded-lg h-[400px] shadow-lg">3</div>
+          </div>
+          <!--profile modal-->
+      <div dir="rtl">
+        <div
+          id="dropdownMenu"
+          class="hidden z-50 absolute bg-gray-200 shadow-xl mt-1 w-28 rounded-lg top-14 start-10 mb-14"
+        >
+          <a
+            href="profile.html"
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg text-left"
+          >
+            <p class="">Profile</p>
+          </a>
+          <a
+            href=""
+            onclick="logout(event)"
+            class="block font-normal px-4 py-2 hover:bg-gray-100 rounded-lg text-left"
+          >
+            <p class="">Logout</p>
+          </a>
+        </div>
+        <!--profile modal end-->
+        </main>
+      </section>
+    </div>
+    <script src="/dist/JS/avatar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+  </body>
+</html>

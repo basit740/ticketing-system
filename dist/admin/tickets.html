@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickets</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@200;300;400;500&display=swap"
+      rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.min.js"></script>
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="flex flex-row">
+      <!--side nav container-->
+      <div
+        class="bg-gray-200 w-16 h-screen flex flex-col justify-between items-center p-3 flex-none fixed top-0 left-0">
+        <div class="flex flex-col items-center">
+          <!--logo-->
+          <div class="p-2 mb-2">
+            <a href="#">
+              <img src="/img/logo.png" alt="" />
+            </a>
+          </div>
+
+          <!--dash-->
+          <div class="h-16 w-16 bg-gray-100">
+            <div class="h-16 w-16 bg-gray-200 p-0 flex items-center justify-center rounded-br-lg">
+              <a href="dashboard.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path fill-rule="evenodd"
+                    d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
+                    clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!--tickets-->
+          <div class="h-16 w-16 bg-gray-200">
+            <div class="h-16 w-16 flex bg-gray-100 items-center justify-center rounded-l-lg">
+              <a href="tickets.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-6 h-6 fill-blue-950 opacity-90">
+                  <path fill-rule="evenodd"
+                    d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 01-.375.65 2.249 2.249 0 000 3.898.75.75 0 01.375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 17.625v-3.026a.75.75 0 01.374-.65 2.249 2.249 0 000-3.898.75.75 0 01-.374-.65V6.375zm15-1.125a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0V6a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0v.75a.75.75 0 001.5 0v-.75zm-.75 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0V18a.75.75 0 001.5 0v-.75zM6 12a.75.75 0 01.75-.75H12a.75.75 0 010 1.5H6.75A.75.75 0 016 12zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+                    clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!--KB-->
+          <div class="w-16 h-16 bg-gray-100">
+            <div class="h-16 w-16 flex items-center justify-center rounded-tr-lg bg-gray-200">
+              <a href="canned-response.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-">
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!--Repots-->
+          <div class="h-16 w-16 flex items-center justify-center">
+            <a href="analytics.html">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path
+                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
+              </svg>
+            </a>
+          </div>
+
+          <!--messages-->
+
+          <!--B-items-->
+        </div>
+        <div class="pb-6 flex flex-col space-y-2">
+          <div class="h-10 w-10 hover:bg-gray-50 flex justify-center items-center rounded-lg hover:duration-700">
+            <a href="users.html">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                stroke="currentColor" class="w-6 h-6 opacity-50">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+              </svg>
+            </a>
+          </div>
+
+           <!--side nav logout-->
+          <div
+            class="h-10 w-10 hover:bg-gray-50 flex justify-center items-center rounded-lg hover:duration-700"
+          >
+            <a href=""
+            onclick="logout(event)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                class="w-6 h-6 opacity-50"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="w-full h-full ml-16 overflow-auto">
+        <!---top nav-->
+        <nav class="bg-white bottom-1 h-16 border-b-3 drop-shadow-md flex items-center justify-between">
+          <div class="pl-7 font-poppins font-semibold text-lg text-blue-950 opacity-90">
+            Tickets
+          </div>
+          <!--Profile-->
+          <section class="pr-10">
+            <div class="flex items-center">
+              <button id="dropdownToggle" class="rounded-full w-10 h-10 bg-gray-200 relative">
+                <img src="https://i.pinimg.com/564x/d3/71/12/d371121e7e55c3e6bc27b6cea14ebe0d.jpg" alt="Avatar"
+                  class="rounded-full w-100% h-100%" />
+              </button>
+            </div>
+          </section>
+          <!--end Profile-->
+        </nav>
+        <!--main content-->
+        <main class="p-9 space-y-8">
+          <!--filter section-->
+          <div
+            class="md:h-16 xl:h-16 sm:h-72 h-72 bg-gray-200 flex xl:justify-between md:justify-between flex-row text-gray-500 rounded pr-4 relative pt-1 justify-center">
+            <!--filter icon-->
+            <div class="p-1 pl-3">
+              <div
+                class="bg-blue-950 h-8 w-8 flex items-center justify-center rounded-lg absolute -top-[17px] drop-shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-4 h-4 opacity-50 fill-white">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="md:overflow-x-auto overflow-y-hidden">
+              <!--container filter-->
+              <div class="flex md:flex-row xl:flex-row flex-col space-x-4 xl:items-center md:items-center mr-3">
+                <!--tbl search-->
+                <div class="ml-4 mb-1">
+                  <div
+                    class="h-8 relative flex items-center text-gray-400 focus-within:text-gray-600 text-sm mt-4 xl:shadow-lg md:shadow-lg rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-5 h-5 absolute m-0 pointer-events-none left-1">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                    <input type="text" id="searchInput"
+                      class="h-full rounded-lg focus:ring-gray-400 pl-7 md:w-24 xl:w-52" placeholder="Search..."
+                      oninput="handleSearch()" />
+                  </div>
+                </div>
+
+                <!--dropdowns-->
+                <div class="flex flex-col mb-1">
+                  <label for="filterDropdown2" class="text-xs text-black">Subject issue</label>
+                  <select id="filterDropdown2" class="rounded-lg border-none h-8 text-xs shadow-lg">
+                    <option value="all">All</option>
+                    <option value="Software">Software</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Network">Network</option>
+                    <option value="Dhvsu-Facebook Posting">
+                      Dhvsu-Facebook Posting
+                    </option>
+                    <option value="DHVSU-Email">DHVSU-Email</option>
+                    <option value="SMS">SMS (Student Management System)</option>
+                    <option value="PMAPS">
+                      PMAPS (Personnel Attendance Management System)
+                    </option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col mb-1">
+                  <label for="" class="text-xs text-black">Status</label>
+                  <select id="filterDropdown4" class="rounded-lg border-none h-8 text-xs shadow-lg">
+                    <option value="all">All</option>
+                    <option value="Waiting For Support">
+                      Waiting For Support
+                    </option>
+                    <option value="Unresolved">Unresolved</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Waiting For Response">
+                      Waiting For Response
+                    </option>
+                    <option value="Escalated">Escalated</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col mb-1">
+                  <label for="" class="text-xs text-black">Priority</label>
+                  <select id="filterDropdown5" class="rounded-lg border-none h-8 text-xs shadow-lg">
+                    <option value="all">All</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Normal">Normal</option>
+                  </select>
+                </div>
+
+                <button id="resetFiltersButton"
+                  class="bg-blue-950 h-8 w-30 rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-4 mb-1">
+                  Reset Filter
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--end of filter section-->
+
+          <div class="bg-white lg:h-[35rem] rounded-lg flex flex-col shadow-lg h-[35rem]">
+            <section
+              class="h-14 bg-blue-950 bg-opacity-90 rounded-lg text-white p-4 font-poppins border border-l-0 border-r-0 border-t-0 flex flex-row justify-between flex-none">
+              <section>
+                <div class="flex flex-row space-x-5 ml-6 font-medium justify-center">
+                  <button onclick="filterTickets('all')">All</button>
+                  <button onclick="filterTickets('Student')">Student</button>
+                  <button onclick="filterTickets('Employee')">Employee</button>
+                </div>
+              </section>
+              <section class="flex flex-row space-x-3 justify-center items-center mr-5">
+                <div class="flex flex-row items-center">
+                  <label class="bg-zinc-300 w-[30px] h-[15px] relative rounded-full cursor-pointer">
+                    <input type="checkbox" class="form-checkbox sr-only peer" onchange="toggleMyTickets()" />
+                    <span
+                      class="w-2/5 h-4/5 bg-white absolute rounded-full left-[3.7px] top-[1.7px] peer-checked:bg-zinc-600 peer-checked:left-[14px] transition-all duration-500"></span>
+                  </label>
+                </div>
+                <div class="font-bold text-opacity-50">
+                  <h1 class="opacity-70">My Ticket</h1>
+                </div>
+              </section>
+            </section>
+
+            <div class="h-full p-6 overflow-auto">
+              <table id="ticket-table" class="table-auto mt-3 w-full">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Ticket No
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Client ID
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Created
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      From
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Subject Issue
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Description
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Request Type
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Status
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Priority
+                    </th>
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Assigned To
+                    </th>
+
+                    <th class="p-3 font-bold tracking-wide text-left bg-gray-200">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-ticket-rows">
+                  <!-- Sample Ticket Rows -->
+                  <tr
+                    class="ticket-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-4 py-2 text-sm">1</td>
+                    <td class="px-4 py-2 text-sm">CUST-123</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      Jul 19, 2023, 2:30PM
+                    </td>
+                    <td class="px-4 py-2 text-sm">John Doe</td>
+                    <td class="px-4 py-2 text-sm">Software</td>
+                    <td class="px-4 py-2 text-sm">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 text-sm request-type">Student</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-blue-800 bg-blue-200 rounded-lg bg-opacity-50">Waiting
+                        For Support</span>
+                    </td>
+                    <td class="px-4 py-2 text-sm">Normal</td>
+                    <td class="px-4 py-2 text-sm">Support Agent 1</td>
+                    <td class="px-4 py-2 text-sm">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="ticket-Edit.html"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ticket-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">CUST-456</td>
+                    <td class="px-4 py-2">3-8-2023</td>
+                    <td class="px-4 py-2">Jane Smith</td>
+                    <td class="px-4 py-2">PMAPS</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Employee</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-red-800 bg-red-200 rounded-lg bg-opacity-50">Unresolved</span>
+                    </td>
+                    <td class="px-4 py-2">Medium</td>
+                    <td class="px-4 py-2">Support Agent 2</td>
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr
+                    class="ticket-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-4 py-2">3</td>
+                    <td class="px-4 py-2">CUST-789</td>
+                    <td class="px-4 py-2">4-8-2023</td>
+                    <td class="px-4 py-2">Sarah Johnson</td>
+                    <td class="px-4 py-2">Network</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Student</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">Resolved</span>
+                    </td>
+                    <td class="px-4 py-2">Normal</td>
+                    <td class="px-4 py-2">Support Agent 1</td>
+
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr class="ticket-row">
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">CUST-101</td>
+                    <td class="px-4 py-2">5-8-2023</td>
+                    <td class="px-4 py-2">Michael Lee</td>
+                    <td class="px-4 py-2">Hardware</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Employee</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">Waiting
+                        For Response</span>
+                    </td>
+                    <td class="px-4 py-2">High</td>
+                    <td class="px-4 py-2">Support Agent 2</td>
+
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="ticket-row">
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">CUST-101</td>
+                    <td class="px-4 py-2">5-8-2023</td>
+                    <td class="px-4 py-2">Michael Lee</td>
+                    <td class="px-4 py-2">Website</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Employee</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-orange-800 bg-orange-200 rounded-lg bg-opacity-50">Escalated</span>
+                    </td>
+                    <td class="px-4 py-2">High</td>
+                    <td class="px-4 py-2">Support Agent 2</td>
+
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="ticket-row">
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">CUST-101</td>
+                    <td class="px-4 py-2">5-8-2023</td>
+                    <td class="px-4 py-2">Michael Lee</td>
+                    <td class="px-4 py-2">Dhvsu-Facebook Posting</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Employee</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-orange-800 bg-orange-200 rounded-lg bg-opacity-50">Escalated</span>
+                    </td>
+                    <td class="px-4 py-2">High</td>
+                    <td class="px-4 py-2">Support Agent 2</td>
+
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="ticket-row">
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">CUST-101</td>
+                    <td class="px-4 py-2">5-8-2023</td>
+                    <td class="px-4 py-2">Michael Lee</td>
+                    <td class="px-4 py-2">Dhvsu-Email</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Employee</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-orange-800 bg-orange-200 rounded-lg bg-opacity-50">Escalated</span>
+                    </td>
+                    <td class="px-4 py-2">High</td>
+                    <td class="px-4 py-2">Support Agent 2</td>
+
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="ticket-row">
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">CUST-101</td>
+                    <td class="px-4 py-2">5-8-2023</td>
+                    <td class="px-4 py-2">Michael Lee</td>
+                    <td class="px-4 py-2">SMS</td>
+                    <td class="px-4 py-2">
+                      Experiencing technical difficulties.
+                    </td>
+                    <td class="px-4 py-2 request-type">Employee</td>
+                    <td class="px-4 py-2 text-sm whitespace-nowrap">
+                      <span
+                        class="status-badge p-1.5 text-xs font-semibold tracking-wider text-orange-800 bg-orange-200 rounded-lg bg-opacity-50">Escalated</span>
+                    </td>
+                    <td class="px-4 py-2">High</td>
+                    <td class="px-4 py-2">Support Agent 2</td>
+
+                    <td class="px-4 py-2">
+                      <button
+                        class="bg-blue-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="moveToPickedUp(this)">
+                        Pick Up
+                      </button>
+
+                      <a href="#"
+                        class="bg-yellow-500 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex text-center items-center opacity-90 mt-3"
+                        onclick="editTicket(this)">
+                        Edit
+                      </a>
+                      <button
+                        class="bg-red-950 h-8 w-full rounded-lg text-xs flex-none text-white font-medium p-4 flex items-center opacity-90 mt-3"
+                        onclick="deleteTicket(this)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table id="picked-up-tickets-table" class="table-auto mt-4 w-full hidden">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                    <th class="px-4 py-2 bg-gray-200">Ticket No</th>
+                    <th class="px-4 py-2 bg-gray-200">Client ID</th>
+                    <th class="px-4 py-2 bg-gray-200">Created</th>
+                    <th class="px-4 py-2 bg-gray-200">From</th>
+                    <th class="px-4 py-2 bg-gray-200">Subject Issue</th>
+                    <th class="px-4 py-2 bg-gray-200">DESCRIPTION</th>
+                    <th class="px-4 py-2 bg-gray-200">Request Type</th>
+                    <th class="px-4 py-2 bg-gray-200">Status</th>
+                    <th class="px-4 py-2 bg-gray-200">Priority</th>
+                    <th class="px-4 py-2 bg-gray-200">Assigned To</th>
+                    <th class="px-4 py-2 bg-gray-200">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Picked up ticket rows will be moved here dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+        <!--profile modal-->
+      <div dir="rtl">
+        <div
+          id="dropdownMenu"
+          class="hidden z-50 absolute bg-gray-200 shadow-xl mt-1 w-28 rounded-lg top-14 start-10 mb-14"
+        >
+          <a
+            href="profile.html"
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg text-left"
+          >
+            <p class="">Profile</p>
+          </a>
+          <a
+            href=""
+            onclick="logout(event)"
+            class="block font-normal px-4 py-2 hover:bg-gray-100 rounded-lg text-left"
+          >
+            <p class="">Logout</p>
+          </a>
+        </div>
+        <!--profile modal end-->
+      </section>
+    </div>
+    <script src="/dist/JS/avatar.js"></script>
+    <script src="/dist/JS/global.js"></script>
+    <script src="/dist/JS/tickets.js"></script>
+    <script>
+      const myTickets = [];
+
+      function filterTickets (category) {
+        const activeTable = document.getElementById("ticket-table");
+        const pickedUpTable = document.getElementById(
+          "picked-up-tickets-table"
+        );
+        const activeRows = activeTable.querySelectorAll(".ticket-row");
+        const pickedUpRows = pickedUpTable.querySelectorAll(".ticket-row");
+
+        activeRows.forEach((row) => {
+          const requestType = row.querySelector(".request-type").textContent;
+          const isPickedUp = row.parentNode.id === "picked-up-tickets-table";
+          if (category === "all" || requestType === category || isPickedUp) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+
+        pickedUpRows.forEach((row) => {
+          const requestType = row.querySelector(".request-type").textContent;
+          const isPickedUp = row.parentNode.id === "picked-up-tickets-table";
+          if (category === "all" || requestType === category || isPickedUp) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+        document
+          .querySelector(
+            ".tablinks[onclick=\"filterTickets('" + category + "')\"]"
+          )
+          .classList.add("active");
+      }
+
+      function toggleMyTickets () {
+        const toggleCheckbox = document.querySelector(".form-checkbox");
+        const activeTable = document.getElementById("ticket-table");
+        const pickedUpTable = document.getElementById(
+          "picked-up-tickets-table"
+        );
+
+        if (toggleCheckbox.checked) {
+          activeTable.style.display = "none";
+          pickedUpTable.style.display = "table";
+          filterTickets("all");
+        } else {
+          activeTable.style.display = "table";
+          pickedUpTable.style.display = "none";
+          filterTickets("all");
+        }
+      }
+
+      function moveToPickedUp (button) {
+        const row = button.parentNode.parentNode;
+        const pickedUpTable = document
+          .getElementById("picked-up-tickets-table")
+          .querySelector("tbody");
+        pickedUpTable.appendChild(row);
+        button.textContent = "Release";
+        button.onclick = function () {
+          moveToActive(this);
+        };
+      }
+
+      function moveToActive (button) {
+        const row = button.parentNode.parentNode;
+        const activeTable = document
+          .getElementById("ticket-table")
+          .querySelector("tbody");
+        activeTable.appendChild(row);
+        button.textContent = "Pick Up";
+        button.onclick = function () {
+          moveToPickedUp(this);
+        };
+      }
+
+      function deleteTicket (button) {
+        const row = button.parentNode.parentNode;
+        row.remove();
+      }
+
+      function editTicket (button) {
+        console.log("Edit ticket clicked");
+      }
+
+      function handleSearch () {
+        const searchInput = document.getElementById("searchInput");
+        const searchTerm = searchInput.value.toLowerCase();
+        const activeTable = document.getElementById("ticket-table");
+        const pickedUpTable = document.getElementById(
+          "picked-up-tickets-table"
+        );
+        const allRows = activeTable.querySelectorAll(".ticket-row");
+        const pickedUpRows = pickedUpTable.querySelectorAll(".ticket-row");
+
+        allRows.forEach((row) => {
+          const ticketData = row.textContent.toLowerCase();
+          if (ticketData.includes(searchTerm)) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+
+        pickedUpRows.forEach((row) => {
+          const ticketData = row.textContent.toLowerCase();
+          if (ticketData.includes(searchTerm)) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      }
+
+      function applyFilters () {
+        const categoryDropdown = document.getElementById("filterDropdown2");
+        const statusDropdown = document.getElementById("filterDropdown4");
+        const priorityDropdown = document.getElementById("filterDropdown5");
+
+        const selectedCategory = categoryDropdown.value;
+        const selectedStatus = statusDropdown.value;
+        const selectedPriority = priorityDropdown.value;
+
+        const allRows = document.querySelectorAll(".ticket-row");
+
+        allRows.forEach((row) => {
+          const category = row.querySelector(
+            ".px-4.py-2:nth-child(5)"
+          ).textContent;
+          const status = row.querySelector(".status-badge").textContent;
+          const priority = row.querySelector(
+            ".px-4.py-2:nth-child(9)"
+          ).textContent;
+
+          const categoryMatch =
+            selectedCategory === "all" || category === selectedCategory;
+          const statusMatch =
+            selectedStatus === "all" || status === selectedStatus;
+          const priorityMatch =
+            selectedPriority === "all" || priority === selectedPriority;
+
+          if (categoryMatch && statusMatch && priorityMatch) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      }
+
+      // Update the applyFilters function
+      applyFilters();
+
+      // Add event listeners to the dropdowns
+      document
+        .getElementById("filterDropdown2")
+        .addEventListener("change", applyFilters);
+      document
+        .getElementById("filterDropdown4")
+        .addEventListener("change", applyFilters);
+      document
+        .getElementById("filterDropdown5")
+        .addEventListener("change", applyFilters);
+
+      function resetFilters () {
+        document.getElementById("filterDropdown2").value = "all";
+        document.getElementById("filterDropdown4").value = "all";
+        document.getElementById("filterDropdown5").value = "all";
+
+        applyFilters();
+      }
+
+      // Add event listener to the Reset Filters button
+      document
+        .getElementById("resetFiltersButton")
+        .addEventListener("click", resetFilters);
+    </script>
+  </body>
+
+</html>

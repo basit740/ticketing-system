@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Form</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@200;300;400;500&display=swap"
+      rel="stylesheet" />
+  </head>
+
+  <body class="bg-gray-200 relative">
+    <nav class="bg-white h-16 drop-shadow-md bottom-3 p-3 pl-10 fixed top-0 w-screen xl:z-40 z-40 right-4">
+      <img class="h-10 rounded" src="/img/logo-bg-black.png" alt="" />
+    </nav>
+
+    <div class="h-screen w-screen xl:px-32 md:px-10 pt-32 px-10 xl:flex overflow-x-hidden space-y-4 pb-20">
+      <!--ticket info-->
+      <section
+        class="bg-white xl:h-72 w-full xl:w-72 xl:fixed xl:right-16 xl:ml-6 h-72 rounded-lg shadow-2xl md:h-40 xl:z-10 p-5 md:border-t-8 md:border-y-0 md:border-x-0 md:border-blue-950  sm:border-t-8 sm:border-y-0 sm:border-x-0  border-y-0 border-x-0 border-blue-950 border-t-8 xl:border-none ">
+        <div
+          class="bg-gray-200 h-8 sm:w-60 xl:w-full w-44 md:w-60 md:justify-center md:px-10 rounded-full flex items-center px-4 mb-5 xl:justify-center space-x-2">
+          <div class="h-5 w-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-blue-100 stroke-blue-600">
+              <path fill-rule="evenodd"
+                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="font-semibold flex-none text-blue-950 text-opacity-90">
+            Ticket details
+          </div>
+        </div>
+        <div class="flex justify-between md:flex-col xl:flex-row ">
+          <ul class="md:flex xl:flex-col sm:space-y-2 space-y-2 justify-between text-sm xl:space-y-2 text-gray-400">
+            <li class="mt-2 ">Ticket No.</li>
+            <li class="">Name</li>
+            <li>Student Number</li>
+            <li>Department</li>
+            <li>Course/Strand</li>
+            <li>Section</li>
+            <li>Year Level</li>
+          </ul>
+          <ul
+            class="md:flex xl:flex-col sm:space-y-2 space-y-2 justify-between text-sm xl:space-y-2 text-right md:text-left xl:text-right font-semibold">
+            <li class="mt-2 ">1</li>
+            <li>Emma smith</li>
+            <li>42342342</li>
+            <li>CCS</li>
+            <li>BSIT</li>
+            <li>A</li>
+            <li>4</li>
+          </ul>
+        </div>
+      </section>
+      <!--ticket form-->
+      <section
+        class="bg-white xl:h-[930px] xl:w-[800px] h-[950px] rounded-lg shadow-2xl xl:z-10 p-10 pb-10 md:border-t-8 md:border-y-0 md:border-x-0 md:border-blue-950  sm:border-t-8 sm:border-y-0 sm:border-x-0  border-y-0 border-x-0 border-blue-950 border-t-8 xl:border-none">
+        <div class="mb-10">
+          <h1 class="font-semibold font-poppins text-3xl mb-1 opacity-90">
+            Student Form
+          </h1>
+          <div class="bg-blue-100 p-3 rounded border border-blue-500">
+            <p class="font-poppins text-gray-700 text-sm font-bold">
+              This form is intended to assist all students having technical
+              issues with the following:
+            </p>
+            <ul class="font-poppins list-disc ml-5 text-sm text-blue-950 font-medium">
+              <li>SMS (Student Management System)</li>
+              <li>Dhvsu-Email</li>
+            </ul>
+          </div>
+        </div>
+        <div class="">
+          <form id="ticket-form">
+            <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personal Email</label>
+            <input type="text" name="" id="ticket-email" placeholder=""
+              class="bg-gray-300 w-full rounded h-11 mb-4 p-2" />
+            <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject Issue</label>
+            <select name="subject-issue" id="subject-issue" class="mb-4 bg-gray-300 w-full rounded h-11 p-2">
+              <option class="" value="" disabled selected hidden>
+                Subject issue
+              </option>
+              <option value="sms-student-portal">
+                SMS (Student Management System) /Student Portal
+              </option>
+              <option value="dhvsu-email">Dhvsu-Email</option>
+            </select>
+            <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+            <textarea name="" cols="30" rows="10" class="mb-4 bg-gray-300 w-full rounded p-2"
+              id="ticket-description"></textarea>
+
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload a Screenshot</label>
+
+            <input type="file" id="ticket-attachment" class="block mb-4 bg-gray-300 w-full rounded h-11 p-2" />
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">
+              The Screenshot should not exceeds the maximum limit of 25MB (MAX.
+              25mb).
+            </p>
+
+            <div class="flex justify-end mt-9">
+              <button type="submit"
+                class="bg-blue-950 rounded-lg text-white w-32 h-10 p-2 text-xs font-semibold font-poppins">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="bg-blue-950 h-64 w-screen absolute xl:z-0 xl:top-0 xl:bottom-6 xl:right-4 hidden xl:block">
+      </section>
+    </div>
+
+  </body>
+  <!-- <script src="/dist/JS/avatar.js"></script>
+  <script src="/dist/JS/form.js"></script> -->
+
+  <script src="/dist/JS/global.js" type="text/javascript"></script>
+  <script src="/dist/JS/studentForm.js" type="text/javascript"></script>
+
+
+</html>

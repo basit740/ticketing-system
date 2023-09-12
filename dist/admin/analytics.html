@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Helpdesk</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.min.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex flex-row">
+      <!--side nav container-->
+      <div
+        class="bg-gray-200 w-16 h-screen flex flex-col justify-between items-center p-3 flex-none fixed top-0 left-0"
+      >
+        <div class="flex flex-col items-center">
+          <!--logo-->
+          <div class="p-2 mb-2">
+            <a href="#">
+              <img src="/img/logo.png" alt="" />
+            </a>
+          </div>
+
+          <!--dash-->
+          <div class="h-16 w-16 bg-gray-200">
+            <div
+              class="h-16 w-16 bg-gray-200 p-0 flex items-center justify-center rounded-br-lg"
+            >
+              <a href="dashboard.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!--tickets-->
+          <div class="h-16 w-16 flex bg-gray-200 items-center justify-center">
+            <a href="tickets.html">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 01-.375.65 2.249 2.249 0 000 3.898.75.75 0 01.375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 17.625v-3.026a.75.75 0 01.374-.65 2.249 2.249 0 000-3.898.75.75 0 01-.374-.65V6.375zm15-1.125a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0V6a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0v.75a.75.75 0 001.5 0v-.75zm-.75 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0V18a.75.75 0 001.5 0v-.75zM6 12a.75.75 0 01.75-.75H12a.75.75 0 010 1.5H6.75A.75.75 0 016 12zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!--KB-->
+          <div class="w-16 h-16 bg-gray-100">
+            <div
+              class="h-16 w-16 flex items-center justify-center rounded-br-lg bg-gray-200"
+            >
+              <a href="canned-response.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!--Repots-->
+          <div class="h-16 w-16 bg-gray-200">
+            <div
+              class="h-16 w-16 flex items-center justify-center bg-gray-100 rounded-l-lg"
+            >
+              <a href="inbox.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6 fill-blue-950 opacity-90 stroke-"
+                >
+                  <path
+                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="h-16 w-16 bg-gray-100">
+              <div class="h-16 w-16 bg-gray-200 rounded-tr-lg"></div>
+            </div>
+          </div>
+
+          <!--messages-->
+
+          <!--B-items-->
+        </div>
+        <div class="pb-6 flex flex-col space-y-2">
+          <div
+            class="h-10 w-10 hover:bg-gray-50 flex justify-center items-center rounded-lg hover:duration-700"
+          >
+            <a href="users.html">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                class="w-6 h-6 opacity-50"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!--side nav logout-->
+          <div
+            class="h-10 w-10 hover:bg-gray-50 flex justify-center items-center rounded-lg hover:duration-700"
+          >
+            <a href=""
+            onclick="logout(event)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1"
+                stroke="currentColor"
+                class="w-6 h-6 opacity-50"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 flex-auto ml-16">
+        <!---top nav-->
+        <div
+          class="bg-white bottom-1 h-16 border-b-3 drop-shadow-md flex items-center justify-between"
+        >
+          <div
+            class="pl-7 font-poppins font-semibold text-lg text-blue-950 opacity-90"
+          >
+            Analytics
+          </div>
+          <!--Profile-->
+          <section class="pr-10">
+            <div class="flex items-center">
+              <button
+                id="dropdownToggle"
+                class="rounded-full w-10 h-10 bg-gray-200 relative"
+              >
+                <img
+                  src="https://i.pinimg.com/564x/d3/71/12/d371121e7e55c3e6bc27b6cea14ebe0d.jpg"
+                  alt="Avatar"
+                  class="rounded-full w-100% h-100%"
+                />
+              </button>
+            </div>
+          </section>
+          <!--end Profile-->
+        </div>
+
+        <!--main content-->
+        <div class="p-9 font-poppins space-y-5">
+          <div class="h-5 text-xs font-bold flex items-center space-x-1">
+            <h4 class="text-blue-950 opacity-90">Analytics</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+              class="w-4 h-4 stroke-blue-950 opacity-90"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+            <h4 class="text-gray-300">Report</h4>
+          </div>
+          <section class="h-12 flex items-center justify-end">
+            <a
+              href="report.html"
+              class="bg-blue-950 h-10 w-28 rounded-lg text-xs text-white font-medium flex items-center opacity-90 space-x-2 pl-6"
+            >
+              <p class="font-medium text-sm">Report</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
+          </section>
+          <section class="h-full space-y-4">
+            <!--accordion1-->
+            <div class="max-w-7xl mx-auto">
+              <div class="bg-white rounded-xl">
+                <div class="accordion-header flex items-center justify-between">
+                  <div class="flex space-x-2 items-center">
+                    <div
+                      class="h-10 w-10 flex justify-center items-center rounded-full bg-red-950"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="w-5 h-5 fill-white opacity-50"
+                      >
+                        <path
+                          d="M11.644 1.59a.75.75 0 01.712 0l9.75 5.25a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.712 0l-9.75-5.25a.75.75 0 010-1.32l9.75-5.25z"
+                        />
+                        <path
+                          d="M3.265 10.602l7.668 4.129a2.25 2.25 0 002.134 0l7.668-4.13 1.37.739a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.71 0l-9.75-5.25a.75.75 0 010-1.32l1.37-.738z"
+                        />
+                        <path
+                          d="M10.933 19.231l-7.668-4.13-1.37.739a.75.75 0 000 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 000-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 01-2.134-.001z"
+                        />
+                      </svg>
+                    </div>
+                    <span class="chevron font-semibold opacity-80"
+                      >Ticket Volume</span
+                    >
+                  </div>
+                  <i class="bx bx-chevron-down text-3xl text-gray-400"></i>
+                </div>
+
+                <div class="accordion-body">
+                  <div class="py-2 border-t grid grid-row-3 gap-4">
+                    <div class="w-full h-60 bg-white"></div>
+                    <div class="h-60 w-full bg-white"></div>
+                    <div class="h-60 w-full bg-white rounded-b-lg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--accordion2-->
+            <div class="max-w-7xl mx-auto">
+              <div class="bg-white rounded-xl">
+                <div class="accordion-header flex items-center justify-between">
+                  <div class="flex space-x-2 items-center">
+                    <div
+                      class="h-10 w-10 flex justify-center items-center rounded-full bg-blue-950"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="w-5 h-5 opacity-50 fill-white"
+                      >
+                        <path
+                          d="M5.566 4.657A4.505 4.505 0 016.75 4.5h10.5c.41 0 .806.055 1.183.157A3 3 0 0015.75 3h-7.5a3 3 0 00-2.684 1.657zM2.25 12a3 3 0 013-3h13.5a3 3 0 013 3v6a3 3 0 01-3 3H5.25a3 3 0 01-3-3v-6zM5.25 7.5c-.41 0-.806.055-1.184.157A3 3 0 016.75 6h10.5a3 3 0 012.683 1.657A4.505 4.505 0 0018.75 7.5H5.25z"
+                        />
+                      </svg>
+                    </div>
+                    <span class="chevron font-semibold opacity-80"
+                      >Ticket Categories</span
+                    >
+                  </div>
+                  <i class="bx bx-chevron-down text-3xl text-gray-400"></i>
+                </div>
+
+                <div class="accordion-body">
+                  <div
+                    class="py-2 h-96 border-t grid sm:grid-rows-3 xl:grid-cols-3 gap-5"
+                  >
+                    <div class="bg-white"></div>
+                    <div class="bg-white"></div>
+                    <div class="bg-white"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <!--profile modal-->
+      <div dir="rtl">
+        <div
+          id="dropdownMenu"
+          class="hidden z-50 absolute bg-gray-200 shadow-xl mt-1 w-28 rounded-lg top-14 start-10 mb-14"
+        >
+          <a
+            href="profile.html"
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-lg text-left"
+          >
+            <p class="">Profile</p>
+          </a>
+          <a
+            href=""
+            onclick="logout(event)"
+            class="block font-normal px-4 py-2 hover:bg-gray-100 rounded-lg text-left"
+          >
+            <p class="">Logout</p>
+          </a>
+        </div>
+        <!--profile modal end-->
+    </div>
+    <script src="/dist/JS/accordion.js"></script>
+    <script src="/dist/JS/avatar.js"></script>
+    <script src="/dist/JS/globalFunctions.js"></script>
+  </body>
+</html>
