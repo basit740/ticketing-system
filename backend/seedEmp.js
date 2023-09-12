@@ -1,4 +1,4 @@
-const { Employee } = require('../db/index.js');
+const { Employee } = require('./p-sql/db/index.js');
 
 const seedEmp = async () => {
 	try {

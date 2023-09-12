@@ -3,7 +3,7 @@ const seedEmp = require('./seedEmp');
 // const seedCategories = require('./seedCategories');
 // const seedRecipes = require('./seedRecipes');
 
-const db = require('../db/database');
+const db = require('./p-sql/db/database');
 
 // Load models
 // const { User, Recipe, Category } = require('../db/index.js');
