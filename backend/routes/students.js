@@ -3,14 +3,13 @@ const router = express.Router();
 
 const {
 	getAllStudents,
-	addStudent,
+	createStudent,
 	validateStudent,
-} = require('../controllers/students');
-
+} = require('../p-sql/api/students');
 // all auth routes
 
 router.get('/', getAllStudents);
-router.post('/', addStudent);
+router.post('/', createStudent);
 router.post('/validate/:studentNumber', validateStudent);
 
 module.exports = router;

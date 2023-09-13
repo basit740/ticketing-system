@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
+const { Employee, Student } = require('../p-sql/db/index');
+
 exports.superAdminRoute = async (req, res, next) => {
 	let token = null;
 
@@ -68,3 +70,41 @@ exports.superAdminAndAdmindRoute = async (req, res, next) => {
 		});
 	}
 };
+
+exports.protect = async (req, res, next) => {
+	let token = null;
+
+	if (
+		req.headers.authorization &&
+		req.headers.authorization.startsWith('Bearer ')
+	) {
+		token = req.headers.authorization.split(' ')[1];
+	}
+
+	const decoded = jwt.verify(token, process.env.SECRET_KEY);
+	let foundUser = null;
+	if (decoded.userType === 'student') {
+		foundUser = await Student.findByPk(decoded.userId);
+	} else {
+		foundUser = await Employee.findByPk(decoded.userId);
+	}
+
+	if (foundUser) {
+		next();
+	} else {
+		return res.status(403).json({
+			success: false,
+			message: 'No Valid Token found!',
+		});
+	}
+
+	// check if token exist
+	if (!token) {
+		return res.status(403).json({
+			success: false,
+			message: 'No Valid Token found!',
+		});
+	}
+};
+
+// decoded: { userId: 1, userType: 'student', iat: 1694620213, exp: 1694706613 }

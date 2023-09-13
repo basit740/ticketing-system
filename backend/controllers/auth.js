@@ -1,6 +1,8 @@
 const bycrypt = require('bcrypt');
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
+
+const genToken = require('../utils/genToken');
 exports.register = async (req, res, next) => {
 	try {
 		const { firstName, lastName, role, email, password } = req.body;
@@ -48,7 +50,7 @@ exports.login = async (req, res, next) => {
 		}
 
 		// create token and send jsonweb token
-		const token = genToken(foundUser._id);
+		const token = genToken(foundUser._id, foundUser);
 		res.status(201).json({
 			success: true,
 			user: foundUser,
@@ -64,8 +66,8 @@ exports.login = async (req, res, next) => {
 
 // helper functions
 
-const genToken = (userId) => {
-	return jwt.sign({ userId }, process.env.SECRET_KEY, {
-		expiresIn: process.env.JWT_EXPIRE,
-	});
-};
+// const genToken = (userId) => {
+// 	return jwt.sign({ userId }, process.env.SECRET_KEY, {
+// 		expiresIn: process.env.JWT_EXPIRE,
+// 	});
+// };
