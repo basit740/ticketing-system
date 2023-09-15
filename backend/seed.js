@@ -1,5 +1,5 @@
 const sequelize = require('sequelize');
-const seedEmp = require('./seedEmp');
+const seedTickets = require('./seedTickets');
 // const seedCategories = require('./seedCategories');
 // const seedRecipes = require('./seedRecipes');
 
@@ -10,7 +10,7 @@ const db = require('./p-sql/db/database');
 
 const seedData = async () => {
 	await db.sync({ force: true }); // This will drop and recreate the tables
-	await seedEmp();
+	await seedTickets();
 	// await seedCategories();
 	// await seedRecipes();
 

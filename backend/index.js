@@ -23,7 +23,7 @@ server.use(fileUpload());
 
 const connectDB = require('./db.js');
 
-// connectDB();
+connectDB();
 
 // all routes
 const authRoutes = require('./routes/auth');

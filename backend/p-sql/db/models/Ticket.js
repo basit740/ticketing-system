@@ -4,7 +4,7 @@ const db = require('../database');
 
 const Ticket = db.define('Ticket', {
 	ticketNumber: {
-		type: DataTypes.NUMBER,
+		type: DataTypes.INTEGER,
 	},
 	imgUrl: {
 		type: DataTypes.STRING,
