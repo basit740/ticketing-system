@@ -81,28 +81,38 @@ exports.protect = async (req, res, next) => {
 		token = req.headers.authorization.split(' ')[1];
 	}
 
-	const decoded = jwt.verify(token, process.env.SECRET_KEY);
-	let foundUser = null;
-	if (decoded.userType === 'student') {
-		foundUser = await Student.findByPk(decoded.userId);
-	} else {
-		foundUser = await Employee.findByPk(decoded.userId);
-	}
+	try {
+		const decoded = jwt.verify(token, process.env.SECRET_KEY);
+		let foundUser = null;
+		if (decoded.userType === 'student') {
+			foundUser = await Student.findByPk(decoded.userId);
+			req.userType = 'student';
+		} else {
+			foundUser = await Employee.findByPk(decoded.userId);
+			req.userType = 'employee';
+		}
 
-	if (foundUser) {
-		next();
-	} else {
-		return res.status(403).json({
-			success: false,
-			message: 'No Valid Token found!',
-		});
-	}
+		if (foundUser) {
+			req.userId = foundUser.id;
+			next();
+		} else {
+			return res.status(403).json({
+				success: false,
+				message: 'No Valid Token found!',
+			});
+		}
 
-	// check if token exist
-	if (!token) {
-		return res.status(403).json({
+		// check if token exist
+		if (!token) {
+			return res.status(403).json({
+				success: false,
+				message: 'No Valid Token found!',
+			});
+		}
+	} catch (err) {
+		res.status(403).json({
 			success: false,
-			message: 'No Valid Token found!',
+			message: 'Not a valid token',
 		});
 	}
 };

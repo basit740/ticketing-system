@@ -2,12 +2,17 @@ const express = require('express');
 const router = express.Router();
 const { protect } = require('../middleware/auth');
 const {
-	getAllTickets,
+	// getAllTickets,
 	// createTicket,
-	deleteTickets,
+	// deleteTickets,
 } = require('../controllers/tickets');
 
-const { testTicket, createTicket } = require('../p-sql/api/tickets');
+const {
+	testTicket,
+	getAllTickets,
+	createTicket,
+	deleteTickets,
+} = require('../p-sql/api/tickets');
 
 // all auth routes
 

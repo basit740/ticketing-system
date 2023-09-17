@@ -1,5 +1,6 @@
 const { Ticket, Student, Employee, db } = require('../db/index');
 const { Op } = require('sequelize');
+const path = require('path');
 
 const { v4: uuidv4 } = require('uuid');
 const asyncLock = require('async-lock');
@@ -13,70 +14,41 @@ exports.testTicket = async (req, res) => {
 	});
 };
 
+// GET ALL TICKETS
+exports.getAllTickets = async (req, res, next) => {
+	const allTickets = await getTodaysTickets();
+	res.status(200).json({
+		success: true,
+		count: allTickets.length,
+		tickets: allTickets,
+	});
+};
+
+// DELETE ALL THE TICKETS
+
+exports.deleteTickets = async (req, res) => {
+	try {
+		// Delete all records from the Ticket table
+		await Ticket.destroy({
+			where: {}, // Empty where clause to match all records
+		});
+
+		res.status(200).json({
+			success: true,
+		});
+	} catch (error) {
+		console.error('Error deleting tickets:', error);
+		res.status(500).json({
+			success: false,
+			error: 'Internal Server Error',
+		});
+	}
+};
+
 exports.createTicket = async (req, res) => {
 	try {
 		const { studentNumber, employeeNumber, ticketEmail, subject, description } =
 			req.body;
-
-		// check the total tickets limit
-		const totalTodaysTickets = await getTodaysTickets();
-
-		// return res.status(200).json({ success: true, data: totalTodaysTickets });
-
-		if (totalTodaysTickets.length >= process.env.TOTAL_TICKETS_LIMIT) {
-			res.status(400).json({
-				success: false,
-				message: 'Ticket qouta for todays exceeded!',
-			});
-			return;
-		}
-
-		// return if existing ticket is there
-
-		const result = await findExistingUnresolvedTicket(
-			studentNumber ? studentNumber : employeeNumber
-		);
-
-		// console.log(result);
-
-		if (result) {
-			res.status(400).json({
-				success: false,
-				message: 'Waiting Ticket already exists!',
-			});
-			return;
-		}
-
-		const newTicketNumber = await createNewTicketNumber();
-
-		res.status(200).json({
-			success: true,
-			data: newTicketNumber,
-		});
-
-		// const imageFile = req.files.file;
-
-		// SAVE IMG FILE
-		// const imageFileName = `image-${uuidv4()}.${imageFile.name
-		// 	.split('.')
-		// 	.pop()}`;
-		// const imagePath = path.join(
-		// 	__dirname,
-		// 	'../public/images/tickets',
-		// 	imageFileName
-		// );
-
-		// imageFile.mv(imagePath, (error) => {
-		// 	if (error) {
-		// 		console.error('Failed to save image:', error);
-		// 		return res.status(500).json({ error: 'Failed to save image' });
-		// 	}
-		// });
-
-		// const serverImgPath =
-		// process.env.SERVER_URL + `/images/tickets/${imageFileName}`;
-
-		// END SAVE IMG FILE
 
 		let student = null;
 		let employee = null;
@@ -97,6 +69,85 @@ exports.createTicket = async (req, res) => {
 			});
 		}
 
+		if (student && student.id !== req.userId) {
+			return res.status(403).json({
+				success: false,
+				message: 'Not a valid student',
+			});
+		}
+		if (student && req.userType !== 'student') {
+			return res.status(403).json({
+				success: false,
+				message: 'Not a valid student',
+			});
+		}
+		if (employee && employee.id !== req.userId) {
+			return res.status(403).json({
+				success: false,
+				message: 'Not a valid employee',
+			});
+		}
+		if (employee && req.userType !== 'employee') {
+			return res.status(403).json({
+				success: false,
+				message: 'Not a valid employee',
+			});
+		}
+
+		// check the total tickets limit
+		const totalTodaysTickets = await getTodaysTickets();
+
+		// return res.status(200).json({ success: true, data: totalTodaysTickets });
+
+		if (totalTodaysTickets.length >= process.env.TOTAL_TICKETS_LIMIT) {
+			res.status(400).json({
+				success: false,
+				message: 'Ticket qouta for todays exceeded!',
+			});
+			return;
+		}
+
+		// return if existing ticket is there
+
+		const result = await findExistingUnresolvedTicket(
+			student ? student.studentNumber : employee.employeeNumber,
+			student ? 'student' : 'employee'
+		);
+
+		// console.log(result);
+
+		if (result) {
+			res.status(400).json({
+				success: false,
+				message: 'Waiting Ticket already exists!',
+			});
+			return;
+		}
+
+		const imageFile = req.files.file;
+
+		// SAVE IMG FILE
+		const imageFileName = `image-${uuidv4()}.${imageFile.name
+			.split('.')
+			.pop()}`;
+		const imagePath = path.join(
+			__dirname,
+			'../../public/images/tickets',
+			imageFileName
+		);
+
+		imageFile.mv(imagePath, (error) => {
+			if (error) {
+				console.error('Failed to save image:', error);
+				return res.status(500).json({ error: 'Failed to save image' });
+			}
+		});
+
+		const serverImgPath =
+			process.env.SERVER_URL + `/images/tickets/${imageFileName}`;
+
+		// END SAVE IMG FILE
+
 		// TICKET CREATTION PROCESS
 		await lock.acquire('createAsyncTicketLock', async () => {
 			// OstudentNumber
@@ -107,8 +158,8 @@ exports.createTicket = async (req, res) => {
 
 			// Create the new token
 			const newTicket = await Ticket.create({
-				student: student ? student : null,
-				employee: employee ? employee : null,
+				studentId: student ? student.id : null,
+				employeeId: employee ? employee.id : null,
 				ticketNumber: newTicketNumber,
 				imgUrl: serverImgPath ? serverImgPath : '',
 				description: description,
@@ -120,20 +171,18 @@ exports.createTicket = async (req, res) => {
 			// const socket = getSocketInstance();
 			// socket.emit('tokensUpdated');
 
-			console.log('here');
 			// Send the response with the newly created token
-			res.status(201).json({ success: true, newTicket });
-			return;
+			res.status(200).json({ success: true, newTicket: newTicket });
 		});
 	} catch (error) {
 		// Handle any potential errors
-		console.error(error);
+		console.error('error here>>>>>>>>>>>>>>>>>>>>>>:'.red, error);
 		res.status(500).json({ error: 'Failed to create ticket' });
 	}
 };
 
 // FIND UNRESOLVED EXISTING TICKETS
-async function findExistingUnresolvedTicket(userNumber) {
+async function findExistingUnresolvedTicket(userNumber, userType) {
 	const allTickets = await getTodaysTickets();
 
 	if (allTickets.length === 0) {
@@ -146,16 +195,19 @@ async function findExistingUnresolvedTicket(userNumber) {
 	let waitingUserTicket = allTickets.find((ticket) => {
 		if (
 			(ticket.status === 'waiting' &&
-				ticket.student &&
-				ticket.student.studentNumber === +userNumber) ||
+				ticket.Student &&
+				userType === 'student' &&
+				ticket.Student.studentNumber === +userNumber) ||
 			(ticket.status === 'waiting' &&
-				ticket.employee &&
-				ticket.employee.employeeNumber === +userNumber)
+				ticket.Employee &&
+				userType === 'employee' &&
+				ticket.Employee.employeeNumber === +userNumber)
 		) {
 			return ticket;
 		}
 	});
 
+	// console.log({ waitingUserTicket });
 	if (waitingUserTicket) {
 		return true;
 	}
@@ -234,3 +286,5 @@ async function createNewTicketNumber() {
 		throw error;
 	}
 }
+
+//

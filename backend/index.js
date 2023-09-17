@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 const fileUpload = require('express-fileupload');
+const colors = require('colors');
 
 const {
 	superAdminRoute,

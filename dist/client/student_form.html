@@ -38,7 +38,7 @@
         </div>
         <div class="flex justify-between md:flex-col xl:flex-row ">
           <ul class="md:flex xl:flex-col sm:space-y-2 space-y-2 justify-between text-sm xl:space-y-2 text-gray-400">
-            <li class="mt-2 ">Ticket No.</li>
+
             <li class="">Name</li>
             <li>Student Number</li>
             <li>Department</li>
@@ -48,13 +48,13 @@
           </ul>
           <ul
             class="md:flex xl:flex-col sm:space-y-2 space-y-2 justify-between text-sm xl:space-y-2 text-right md:text-left xl:text-right font-semibold">
-            <li class="mt-2 ">1</li>
-            <li>Emma smith</li>
-            <li>42342342</li>
-            <li>CCS</li>
-            <li>BSIT</li>
-            <li>A</li>
-            <li>4</li>
+
+            <li id="student-name">Emma smith</li>
+            <li id="student-number">42342342</li>
+            <li id="student-department">CCS</li>
+            <li id="student-course">BSIT</li>
+            <li id="student-section">A</li>
+            <li id="student-year-level">4</li>
           </ul>
         </div>
       </section>
@@ -79,7 +79,7 @@
         <div class="">
           <form id="ticket-form">
             <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Personal Email</label>
-            <input type="text" name="" id="ticket-email" placeholder=""
+            <input type="text" name="" id="ticket-email" placeholder="Enter your email here"
               class="bg-gray-300 w-full rounded h-11 mb-4 p-2" />
             <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject Issue</label>
             <select name="subject-issue" id="subject-issue" class="mb-4 bg-gray-300 w-full rounded h-11 p-2">

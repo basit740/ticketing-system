@@ -52,7 +52,12 @@ exports.validateEmployee = async (req, res, next) => {
 
 			res
 				.status(200)
-				.json({ success: true, message: 'Validated', token: token });
+				.json({
+					success: true,
+					message: 'Validated',
+					token: token,
+					employee: foundEmp,
+				});
 		} else {
 			res.status(400).json({ success: false, message: 'not validated!' });
 		}

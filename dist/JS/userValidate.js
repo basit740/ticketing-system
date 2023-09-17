@@ -27,9 +27,15 @@ document.addEventListener('DOMContentLoaded', function () {
 				stdBirthDateEl.value
 			);
 			if (result.success) {
-				setNumber('student', studentNumberEl.value);
+				setToLocal(
+					'student',
+					studentNumberEl.value,
+					result.token,
+					result.student
+				);
 				window.location.href = '/dist/client/student_form.html';
 			} else {
+				console.log({ result });
 				alert('error validing student');
 			}
 		});
@@ -42,7 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
 				empBirthDateEl.value
 			);
 			if (result.success) {
-				setNumber('employee', employeeNumberEl.value);
+				setToLocal(
+					'employee',
+					employeeNumberEl.value,
+					result.token,
+					result.employee
+				);
 				window.location.href = '/dist/client/employee_form.html';
 			} else {
 				alert('error validing emplyoee');
@@ -76,16 +87,22 @@ async function validateStd(stdNumber, birthDate) {
 		}),
 	});
 	const jsonResponse = await response.json();
+	console.log({ jsonResponse });
 	return jsonResponse;
 }
 
-function setNumber(user, number) {
-	if (user === 'student') {
+function setToLocal(userType, number, token, user) {
+	localStorage.setItem('userToken', token);
+	if (userType === 'student') {
 		localStorage.removeItem('employeeNumber');
+		localStorage.removeItem('employee');
+		localStorage.setItem('student', JSON.stringify(user));
 		localStorage.setItem('studentNumber', number);
 
 		return;
 	}
 	localStorage.removeItem('studentNumber');
+	localStorage.removeItem('student');
 	localStorage.setItem('employeeNumber', number);
+	localStorage.setItem('employee', JSON.stringify(user));
 }
