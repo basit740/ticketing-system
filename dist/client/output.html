@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,25 +11,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@200;300;400;500&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
+
   <body class="bg-gray-200 relative">
     <nav
-      class="bg-white h-16 drop-shadow-md bottom-3 p-3 pl-10 fixed top-0 w-screen xl:z-40 flex-none sm:hidden hidden xl:block md:block"
-    >
+      class="bg-white h-16 drop-shadow-md bottom-3 p-3 pl-10 fixed top-0 w-screen xl:z-40 flex-none sm:hidden hidden xl:block md:block">
       <img class="h-10 rounded" src="/img/logo-bg-black.png" alt="" />
     </nav>
 
-    <div
-      class="xl:pt-16 md:pt-16 h-screen w-screen flex flex-col justify-center items-center shadow-xl"
-    >
+    <div class="xl:pt-16 md:pt-16 h-screen w-screen flex flex-col justify-center items-center shadow-xl">
       <div
-        class="bg-white xl:h-96 md:h-96 xl:w-[60rem] md:w-[50rem] sm:h-[520px] h-[520px] w-96 rounded-lg shadow-xl border-none mb-10"
-      >
+        class="bg-white xl:h-96 md:h-96 xl:w-[60rem] md:w-[50rem] sm:h-[520px] h-[520px] w-96 rounded-lg shadow-xl border-none mb-10">
         <div
-          class="h-16 bg-black rounded-t-lg text-white p-2 font-bold text-sm pl-5 pt-3 flex justify-between pr-5 uppercase"
-        >
+          class="h-16 bg-black rounded-t-lg text-white p-2 font-bold text-sm pl-5 pt-3 flex justify-between pr-5 uppercase">
           <p>
             ONLINE <br />
             HELPDESK
@@ -39,58 +35,51 @@
           </div>
         </div>
         <div class="flex xl:h-[320px] md:h-[320px] sm:h-[457px] h-[457px]">
-          <div
-            class="w-20 border-r-[3px] border-black flex items-center justify-center"
-          >
+          <div class="w-20 border-r-[3px] border-black flex items-center justify-center">
             <div class="h-20 w-auto whitespace-no-wrap flex flex-none">
-              <p
-                class="w-full h-full transform -rotate-90 text-5xl pt-4 font-bold"
-              >
+              <p class="w-full h-full transform -rotate-90 text-5xl pt-4 font-bold" id="ticket-date">
                 06-08-2023
               </p>
             </div>
           </div>
-          <div
-            class="xl:w-[470px] md:w-[470px] sm:[300px] [300px] uppercase p-4 space-y-3 mt-5 flex-none"
-          >
+          <div class="xl:w-[470px] md:w-[470px] sm:[300px] [300px] uppercase p-4 space-y-3 mt-5 flex-none">
             <div class="block h-14">
               <p class="text-xs">name:</p>
-              <p class="font-bold text-lg">john cena</p>
+              <p class="font-bold text-lg" id="ticket-creator-name">john cena</p>
             </div>
             <div class="block h-14">
-              <p class="text-xs">student Number:</p>
-              <p class="font-bold text-lg">984237492874</p>
+              <p class="text-xs"><span id="user-type">Student</span> Number:</p>
+              <p class="font-bold text-lg" id="ticket-creator-number">984237492874</p>
             </div>
             <div class="block h-14">
               <p class="text-xs">Birthdate:</p>
-              <p class="font-bold text-lg">April 23, 1977</p>
+              <p class="font-bold text-lg" id="ticket-creator-birthdate">April 23, 1977</p>
             </div>
             <div class="h-14 xl:flex md:flex">
               <div class="w-1/4">
                 <p class="text-xs">department:</p>
-                <p class="font-bold text-lg">CCS</p>
+                <p class="font-bold text-lg" id='ticket-creator-department'>CCS</p>
               </div>
-              <div class="w-1/4">
+              <div class="w-1/4 student-specific hidden">
                 <p class="text-xs">course/strand:</p>
-                <p class="font-bold text-lg">BSIT</p>
+                <p class="font-bold text-lg" id="ticket-creator-course">BSIT</p>
               </div>
-              <div class="w-1/4">
+              <div class="w-1/4 student-specific hidden">
                 <p class="text-xs">section:</p>
-                <p class="font-bold text-lg">G</p>
+                <p class="font-bold text-lg" id="ticket-creator-section">G</p>
               </div>
-              <div class="w-1/4">
+              <div class="w-1/4 student-specific hidden">
                 <p class="text-xs">year level:</p>
-                <p class="font-bold text-lg">3</p>
+                <p class="font-bold text-lg" id="ticket-creator-year">3</p>
               </div>
             </div>
           </div>
 
           <div
-            class="w-56 border-l-[3px] border-dashed border-black uppercase p-2 pl-3 space-y-5 pt-12 flex-none sm:hidden hidden md:block xl:block"
-          >
+            class="w-56 border-l-[3px] border-dashed border-black uppercase p-2 pl-3 space-y-5 pt-12 flex-none sm:hidden hidden md:block xl:block">
             <p class="text-xs">ticket number:</p>
             <p class="font-bold text-8xl">NO.</p>
-            <p class="text-8xl font-bold">1</p>
+            <p class="text-8xl font-bold" id="ticket-number">1</p>
           </div>
           <div class="md:hidden xl:block sm:hidden hidden">
             <div class="h-1/2 bg-black m-3 text-white">QR</div>
@@ -118,6 +107,10 @@
     </div>
 
     <!--message-->
+
+    <script src="/dist/JS/global.js" type="text/javascript"></script>
+    <script src="/dist/JS/output.js" type="text/javascript"></script>
   </body>
   <script src="/dist/JS/avatar.js"></script>
+
 </html>

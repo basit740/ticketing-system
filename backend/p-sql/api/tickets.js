@@ -181,6 +181,33 @@ exports.createTicket = async (req, res) => {
 	}
 };
 
+exports.findUserTicket = async (req, res) => {
+	const allTickets = await getTodaysTickets();
+
+	let userTicket = null;
+	if (req.userType === 'student') {
+		userTicket = allTickets.find(
+			(ticket) => ticket.studentId === req.userId && ticket.status === 'waiting'
+		);
+	} else {
+		userTicket = allTickets.find(
+			(ticket) =>
+				ticket.employeeId === req.userId && ticket.status === 'waiting'
+		);
+	}
+
+	if (userTicket) {
+		res.status(200).json({
+			success: true,
+			ticket: userTicket,
+		});
+	} else {
+		res.status(400).json({
+			success: false,
+			ticket: userTicket,
+		});
+	}
+};
 // FIND UNRESOLVED EXISTING TICKETS
 async function findExistingUnresolvedTicket(userNumber, userType) {
 	const allTickets = await getTodaysTickets();

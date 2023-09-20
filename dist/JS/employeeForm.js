@@ -65,6 +65,33 @@ empFormEl.addEventListener('submit', async function (event) {
 			showAlert(jsonResponse.message);
 		}
 	} catch (err) {
-		showAlert(err.message);
+		// showAlert(err.message);
 	}
 });
+
+document.addEventListener('DOMContentLoaded', async () => {
+	const ticketResponse = await findTicketOfEmployee();
+
+	console.log({
+		ticketResponse,
+	});
+
+	if (ticketResponse.success) {
+		localStorage.removeItem('studentTicket');
+		localStorage.setItem(
+			'employeeTicket',
+			JSON.stringify(ticketResponse.ticket)
+		);
+		window.location.href = '/dist/client/output.html';
+	}
+});
+
+async function findTicketOfEmployee() {
+	const response = await fetch(apiUrl + '/tickets/find-one', {
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('userToken'),
+		},
+	});
+	const jsonResponse = await response.json();
+	return jsonResponse;
+}

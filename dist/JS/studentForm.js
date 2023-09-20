@@ -41,11 +41,24 @@ document
 				alert(jsonResponse.message);
 			}
 		} catch (err) {
-			alert('error creating ticket: ' + err.message);
+			// alert('error creating ticket: ' + err.message);
 		}
 	});
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+	const ticketResponse = await findTicketOfStudent();
+	console.log({
+		ticketResponse,
+	});
+
+	if (ticketResponse.success) {
+		localStorage.removeItem('employeeTicket');
+		localStorage.setItem(
+			'studentTicket',
+			JSON.stringify(ticketResponse.ticket)
+		);
+		window.location.href = '/dist/client/output.html';
+	}
 	const student = JSON.parse(localStorage.getItem('student'));
 
 	console.log(student);
@@ -60,4 +73,14 @@ function setStudentProfile(student) {
 	document.querySelector('#student-course').innerHTML = student.course;
 	document.querySelector('#student-section').innerHTML = student.section;
 	document.querySelector('#student-year-level').innerHTML = student.yearLevel;
+}
+
+async function findTicketOfStudent() {
+	const response = await fetch(apiUrl + '/tickets/find-one', {
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('userToken'),
+		},
+	});
+	const jsonResponse = await response.json();
+	return jsonResponse;
 }

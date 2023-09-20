@@ -12,6 +12,7 @@ const {
 	getAllTickets,
 	createTicket,
 	deleteTickets,
+	findUserTicket,
 } = require('../p-sql/api/tickets');
 
 // all auth routes
@@ -20,5 +21,6 @@ router.get('/', getAllTickets);
 router.post('/', protect, createTicket);
 router.delete('/', deleteTickets);
 router.get('/test', protect, testTicket);
+router.get('/find-one', protect, findUserTicket);
 
 module.exports = router;
