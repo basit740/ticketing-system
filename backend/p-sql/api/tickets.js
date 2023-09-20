@@ -1,4 +1,5 @@
 const { Ticket, Student, Employee, db } = require('../db/index');
+const sendEmail = require('../../utils/sendEmail');
 const { Op } = require('sequelize');
 const path = require('path');
 
@@ -167,9 +168,62 @@ exports.createTicket = async (req, res) => {
 				subject: subject,
 			});
 
+			const jsonTicket = newTicket.toJSON();
+			console.log({ jsonTicket });
 			// // Emit the 'tokensUpdated' event
 			// const socket = getSocketInstance();
 			// socket.emit('tokensUpdated');
+
+			let htmlMessage = `
+			<html>
+			<head>
+			<style>
+				header{
+					width:100%;
+					padding:15px 30px;
+					background-color:#9775fa;
+					color:white;
+					font-size:32px;
+				}
+				h1{
+					margin-bottom:24px;
+				}
+				p{
+					margin-bottom:16px;
+				}
+
+				.container{
+					width:600px;
+					padding:20px 30px;
+					margin: 0 auto;
+				}
+			</style>
+			</head>
+			
+			<body>
+			<div class='container'>
+			<header>
+			Ticket Email
+			 </header>
+			<h1>Congrats Mr/Ms> <span style="color:green;">
+			${
+				jsonTicket.studentId !== null
+					? jsonTicket.studentId
+					: jsonTicket.employeeId
+			}</span></h1>
+			<p>${jsonTicket.description}</p>
+			<p>The ticket is created on ${jsonTicket.createdAt.toLocaleString()}</p>
+			<p>This email has been sent from Ticketing System<p>
+			</div>
+			</body>
+			</html>
+			`;
+			// send Email to ticketCreator
+			await sendEmail({
+				email: ticketEmail,
+				subject: 'Ticket is Created!',
+				message: htmlMessage,
+			});
 
 			// Send the response with the newly created token
 			res.status(200).json({ success: true, newTicket: newTicket });

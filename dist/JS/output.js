@@ -14,6 +14,8 @@ const tiketCreatorSectionEl = document.querySelector('#ticket-creator-section');
 const tiketCreatorYearEl = document.querySelector('#ticket-creator-year');
 const ticketNumberEl = document.querySelector('#ticket-number');
 const userTypeEl = document.querySelector('#user-type');
+const qrCodeContainer = document.querySelector('#qr-code');
+
 document.addEventListener('DOMContentLoaded', () => {
 	// Get the path of the current URL
 	var path = window.location.pathname;
@@ -48,4 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	tiketDateEl.innerHTML = ticket.createdAt.split('T')[0];
 	ticketNumberEl.innerHTML = ticket.ticketNumber;
+
+	generateQrCode();
 });
+
+function generateQrCode() {
+	const dataToEncode = 'http://127.0.0.1:5500/dist/client/output.html';
+
+	var options = {
+		text: dataToEncode,
+		width: 128,
+		height: 128,
+	};
+	var qrCode = new QRCode(qrCodeContainer, options);
+}
